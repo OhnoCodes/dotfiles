@@ -362,7 +362,6 @@
   #####################################[ vcs: git status ]######################################
   # Version control background colors.
   typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND='#4B004B'
-  typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND='#50C878'
   typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='#CC5500'
   typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='#8E4585'
   typeset -g POWERLEVEL9K_VCS_CONFLICTED_BACKGROUND='#CC5500'
@@ -497,7 +496,7 @@
   # Disable the default Git status formatting.
   typeset -g POWERLEVEL9K_VCS_DISABLE_GITSTATUS_FORMATTING=true
   # Install our own Git status formatter.
-  typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='${$((my_git_formatter()))+${my_git_format}}'
+  typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='%F{#DC143C}${$((my_git_formatter()))+${my_git_format}}'
   # Enable counters for staged, unstaged, etc.
   typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED,CONFLICTED,COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=-1
 
