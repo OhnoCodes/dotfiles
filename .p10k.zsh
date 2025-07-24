@@ -397,18 +397,25 @@
     local      clean='%1F' # red foreground
     local   modified='%0F' # black foreground
     local  untracked='%0F' # black foreground
-    local conflicted='%1F' # red foreground
+    local conflicted='%0F' # red foreground
 
     local res
 
     if [[ -n $VCS_STATUS_LOCAL_BRANCH ]]; then
       local branch=${(V)VCS_STATUS_LOCAL_BRANCH}
+  # Choose branch foreground color based on dirty status
+      local branch_color
+      if (( VCS_STATUS_HAS_UNSTAGED )); then
+       branch_color='%0F'  # black when modified
+      else
+       branch_color='%7F'  # white or whatever you want when clean
+      fi
       # If local branch name is at most 32 characters long, show it in full.
       # Otherwise show the first 12 … the last 12.
       # Tip: To always show local branch name in full without truncation, delete the next line.
       (( $#branch > 32 )) && branch[13,-13]="…"  # <-- this line
-      res+="${clean}${(g::)POWERLEVEL9K_VCS_BRANCH_ICON}${branch//\%/%%}"
-    fi
+      res+="${branch_color}${git}${VCS_STATUS_ICON}${branch//\%/%%}"
+      fi
 
     if [[ -n $VCS_STATUS_TAG
           # Show tag only if not on a branch.
