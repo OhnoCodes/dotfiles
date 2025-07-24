@@ -134,3 +134,5 @@ ZSH_HIGHLIGHT_STYLES[external-command]='fg=#D400FF'
 ZSH_HIGHLIGHT_STYLES[alias]='fg=#D400FF'
 ZSH_HIGHLIGHT_STYLES[function]='fg=#D400FF'
 ZSH_HIGHLIGHT_STYLES[builtin]='fg=#D400FF'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
