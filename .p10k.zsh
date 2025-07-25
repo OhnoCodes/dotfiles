@@ -406,9 +406,13 @@
   # Choose branch foreground color based on dirty status
       local branch_color
       if (( VCS_STATUS_HAS_UNSTAGED )); then
-       branch_color='%0F'  # black when modified
+       branch_color=$modified  # black when modified
+      elif (( VCS_STATUS_HAS_STAGED )); then
+       branch_color=$modified  # white or whatever you want when clean
+      elif (( VCS_STATUS_COMMITS_AHEAD > 0 )); then
+       branch_color=$clean
       else
-       branch_color='%7F'  # white or whatever you want when clean
+       branch_color=$meta
       fi
       # If local branch name is at most 32 characters long, show it in full.
       # Otherwise show the first 12 … the last 12.
