@@ -393,11 +393,11 @@
     fi
 
     # Styling for different parts of Git status.
-    local       meta='%1F' # white foreground
+    local       meta='%1F' # red foreground
     local      clean='%1F' # red foreground
     local   modified='%0F' # black foreground
     local  untracked='%0F' # black foreground
-    local conflicted='%0F' # red foreground
+    local conflicted='%0F' # black foreground
 
     local res
 
